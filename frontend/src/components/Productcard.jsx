@@ -99,7 +99,7 @@ const ProductCard = ({ product }) => {
           </button>
           <button
             onClick={() => handleDeleteProduct(product._id)}
-            className="text-white hover:text-red-700 focus:outline-none"
+            className="text-red-500 hover:text-red-700 focus:outline-none"
           >
             <FiTrash size={20} />
           </button>
