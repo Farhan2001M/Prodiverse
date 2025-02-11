@@ -11,8 +11,6 @@ const HomePage = () => {
 
   }, [fetchProducts])
 
-  console.log("products" , products)
-
   return (
     <div className="p-6 dark:bg-gray-900 bg-gray-100 dark:text-white text-black ">
       <div className="flex flex-col gap-6">

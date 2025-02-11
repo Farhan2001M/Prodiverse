@@ -33,9 +33,11 @@ const ProductCard = ({ product }) => {
 
   // Modal content as a separate function
   const renderModal = () => (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-      <div className="bg-white dark:bg-gray-700 p-6 rounded-lg w-1/3">
-        <h2 className="text-2xl text-center mb-4 dark:text-white"><strong>Edit Your Product</strong></h2>
+    <div className=" fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 p-4">
+      <div className="bg-white dark:bg-gray-700 p-6 rounded-lg w-full max-w-md mx-4 md:w-1/3">
+        <h2 className="text-xl md:text-2xl text-center mb-4 dark:text-white font-bold">
+          Edit Your Product
+        </h2>
 
         <input
           type="text"
@@ -61,16 +63,17 @@ const ProductCard = ({ product }) => {
           placeholder="Image URL"
           className="p-2 mb-4 w-full rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
         />
-        <div className="flex justify-between mt-4">
+
+        <div className="flex flex-col md:flex-row justify-between gap-2 mt-4">
           <button
             onClick={handleUpdateProduct}
-            className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 flex-1"
           >
-            Update Product
+            Update
           </button>
           <button
             onClick={() => setShowModal(false)}
-            className="bg-gray-500 text-white p-2 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500"
+            className="bg-gray-500 text-white p-2 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 flex-1"
           >
             Cancel
           </button>
@@ -80,23 +83,24 @@ const ProductCard = ({ product }) => {
   );
 
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg dark:bg-gray-800 bg-white dark:text-white text-black transform transition-all hover:translate-y-[-10px] hover:shadow-2xl hover:bg-slate-300 dark:hover:bg-gray-600">
+    <div className=" w-full mx-auto max-w-sm rounded overflow-hidden shadow-lg dark:bg-gray-800 bg-white dark:text-white text-black transform transition-all hover:translate-y-[-10px] hover:shadow-2xl hover:bg-slate-200 dark:hover:bg-gray-600">
       {/* Image */}
       <img className="w-full h-48 object-cover" src={product.image} alt={product.name} />
 
       {/* Footer with name, price, and action buttons */}
       <div className="px-4 py-2">
-        <h2 className="text-xl font-semibold text-black dark:text-white">{product.name}</h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300">${product.price}</p>
-
-        {/* Action buttons (edit and delete) */}
-        <div className="flex space-x-4 mt-2">
+        <div className="flex justify-between items-center">
+          <h2 className="text-xl font-semibold text-black dark:text-white">{product.name}</h2>
           <button
             onClick={() => setShowModal(true)}
             className="text-blue-500 hover:text-blue-700 focus:outline-none"
           >
             <FiEdit size={20} />
           </button>
+        </div>
+        
+        <div className="flex justify-between items-center mt-1">
+          <p className="text-lg text-gray-600 dark:text-gray-300">${product.price}</p>
           <button
             onClick={() => handleDeleteProduct(product._id)}
             className="text-red-500 hover:text-red-700 focus:outline-none"
