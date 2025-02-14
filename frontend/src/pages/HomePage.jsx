@@ -8,7 +8,6 @@ const HomePage = () => {
 
   useEffect(() => {
     fetchProducts();
-
   }, [fetchProducts])
 
   return (
